@@ -65,8 +65,8 @@ def jouer_coup(id_partie, type_coup, position):
                 return json_res
         else:
             print("Le POST sur '{}' a produit le code d'erreur {}.".format(
-                url_coup, response.status_code)
-            )
+                url_coup, response.status_code
+            ))
     except RuntimeError as error:
         print(error)
 
