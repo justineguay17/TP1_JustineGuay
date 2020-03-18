@@ -2,6 +2,10 @@ import argparse
 
 
 def analyser_commande():
+    """
+    Reçoit et traite une commande envoyé par un utilisateur via un terminal ou une console.
+    :return: l'objet d'arguments généré avec le module argparse.
+    """
     parser = argparse.ArgumentParser(description='Jeu Quoridor - phase 1')
     parser.add_argument('IDUL', metavar='IDUL',
                         default='JUGUA17', help="IDUL du joueur")
@@ -11,13 +15,14 @@ def analyser_commande():
 
 
 def afficher_damier_ascii(etat_de_jeu):
-    pion = []
-    vertical = []
-    horizontal = []
+    """
+    Affiche à la console une partie, soit le positionnement des pions et des murs sur un damier.
+    :param etat_de_jeu: Un dictionnaire json contenant les clés 'joueurs' et 'murs'.
+    :return: Ne retourne rien, mais affiche un damier à la console.
+    """
+    pion, vertical, horizontal = [], [], []
     for i in range(9):
-        matrice_pion = []
-        matrice_verticale = []
-        matrice_horizontale = []
+        matrice_pion, matrice_verticale, matrice_horizontale = [], [], []
         for j in range(9):
             matrice_pion.append('.')
             matrice_verticale.append(' ')
