@@ -16,14 +16,14 @@ def lister_parties(idul):
             response = response.text
             json_var = json.loads(response)
             json_str = json.dumps(json_var, indent=2)
-            print(json_str)    
+            print(json_str)
         else:
             print("Le GET sur '{}' a produit le code d'erreur {}.".format(
-                url_lister, response.status_code
-            ))
+                url_lister, response.status_code)
+            )
     except RuntimeError as error:
         print(error)
-            
+
 
 def initialiser_partie(idul):
     """
@@ -39,8 +39,8 @@ def initialiser_partie(idul):
             return json_res['id'], json_res['état']
         else:
             print("Le POST sur '{}' a produit le code d'erreur {}.".format(
-                url_init, response.status_code
-            ))
+                url_init, response.status_code)
+            )
     except RuntimeError as error:
         print(error)
 
@@ -56,8 +56,8 @@ def jouer_coup(id_partie, type_coup, position):
     url_coup = 'https://python.gel.ulaval.ca/quoridor/api/jouer/'
     try:
         response = requests.post(url_coup, data={
-            'id': id_partie, 'type': type_coup, 'pos': position
-        })
+            'id': id_partie, 'type': type_coup, 'pos': position}
+        )
         if response.status_code == 200:
             json_res = response.json()
             if 'gagnant' in json_res:
@@ -68,8 +68,8 @@ def jouer_coup(id_partie, type_coup, position):
                 return json_res
         else:
             print("Le POST sur '{}' a produit le code d'erreur {}.".format(
-                url_coup, response.status_code
-            ))
+                url_coup, response.status_code)
+            )
     except RuntimeError as error:
         print(error)
 
