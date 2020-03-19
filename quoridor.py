@@ -55,9 +55,13 @@ def afficher_damier_ascii(etat_de_jeu):
             damier_ascii += "{} |".format(9 - i)
             for j in range(9):
                 if j == 0:
-                    damier_ascii += "{}{} ".format(vertical[i][j] if vertical[i + 1][j] != '|' else '|', pion[i][j])
+                    damier_ascii += "{}{} ".format(
+                        vertical[i][j] if vertical[i + 1][j] != '|' else '|', pion[i][j]
+                    )
                 else:
-                    damier_ascii += "{} {} ".format(vertical[i][j] if vertical[i + 1][j] != '|' else '|', pion[i][j])
+                    damier_ascii += "{} {} ".format(
+                        vertical[i][j] if vertical[i + 1][j] != '|' else '|', pion[i][j]
+                    )
             damier_ascii += "|\n"
             damier_ascii += "  |"
             for j in range(9):
